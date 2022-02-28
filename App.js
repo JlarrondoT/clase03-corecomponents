@@ -1,18 +1,28 @@
 import React from 'react';
 
 import {
-  Text,
   View,
   Button,
+  TextInput
 } from 'react-native';
+
+import { styles } from './styles';
 
 
 const App = () => {
   return (
-    <View>
-      <Text>Hola</Text>
+    <View 
+      style={styles.container}
+    >
+      <TextInput
+        placeholder='Type here'
+        autoCorrect={false}
+        autoFocus={true}
+        placeholderTextColor='#841584'
+        style={styles.textInput}
+      />
       <Button
-        title="Hola"
+        title="Add"
         color="#841584"
         onPress={() =>  null}
         />
