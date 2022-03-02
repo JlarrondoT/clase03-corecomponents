@@ -12,12 +12,17 @@ import { styles } from './styles';
 
 const App = () => {
   const [text, setText] = useState('');
-  const [textList, setTextList] = useState([
-    {
-      id: 1,
-      value: 'buy some water'
-    }
-  ]);
+  const [textList, setTextList] = useState([]);
+
+  const handleOnChangeInput = (value) => {
+    setText(value);
+  }
+  
+  const addItem = () => {
+    setTextList([...textList, { id: textList.length + 1, value: text }]);
+    setText('');
+  }
+
   return (
     <View 
       style={styles.container}
@@ -30,16 +35,17 @@ const App = () => {
           placeholderTextColor='#841584'
           style={styles.textInput}
           value={text}
+          onChangeText={handleOnChangeInput}
         />
         <Button
           title="Add"
           color="#841584"
-          onPress={() =>  null}
+          onPress={() =>  addItem()}
           />
       </View>
       <View style={styles.containerList}>
-        {textList.map(item  => (
-          <Text style={styles.textList}>{item.value}</Text>
+        {textList.length > 0 && textList.map(item  => (
+          <Text key={item.id} style={styles.textList}>{item.value}</Text>
         ))}
       </View>
     </View>
