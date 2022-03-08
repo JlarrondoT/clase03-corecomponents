@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import {
   View,
   Button,
-  TextInput,
   Text,
   FlatList,
   TouchableOpacity,
-  Modal
+  SafeAreaView,
 } from 'react-native';
 
+import Input from './components/atoms/Input/index'
+import CustomModal from './components/molecules/CustomModal';
 import { styles } from './styles';
 
 
@@ -24,6 +25,8 @@ const App = () => {
   }
   
   const addItem = () => {
+    console.warn(text);
+    console.log(text);
     if(text !== ''){
     setTextList([...textList, { id: textList.length + 1, value: text }]);
     setText('');
@@ -43,18 +46,18 @@ const App = () => {
   }
 
   return (
-    <View 
+    <SafeAreaView 
       style={styles.container}
     >
       <View style={styles.containerInput}>
-        <TextInput
+        <Input
           placeholder='Type here'
           autoCorrect={false}
           autoFocus={true}
           placeholderTextColor='#841584'
           style={styles.textInput}
           value={text}
-          onChangeText={handleOnChangeInput}
+          handleOnChangeText={handleOnChangeInput}
         />
         <Button
           title="Add"
@@ -73,29 +76,15 @@ const App = () => {
             keyExtractor={item => item.id.toString()}
           />
       </View>
-        <Modal
-          animationType="slide"
+        <CustomModal
           visible={modalVisible}
-          transparent={true}
-          >
-            <View style={styles.modalContainerContent}>
-              <View style={styles.modaTitle}>
-                <Text>Description</Text>
-              </View>
-              <View style={styles.modalContent}>
-                  <Text>Do you want to delete this item?</Text>
-                  <Text style={styles}>{selectedItem.value}</Text>
-              </View>
-              <View style={styles.modalButton}>
-                <Button
-                  title="Yes" 
-                  color="#841584"
-                  onPress={() => handleDeleteItem(selectedItem.id)}
-                />
-              </View>
-            </View>
-        </Modal>
-    </View>
+          title='Delete Item'
+          description='Are you sure you want to delete this item?'
+          selectedItem={selectedItem}
+          buttonText='Yes'
+          onHandleDeleteItem={handleDeleteItem}
+        />
+    </SafeAreaView>
   );
 };
 

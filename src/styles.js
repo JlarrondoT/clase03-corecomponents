@@ -14,15 +14,6 @@ export const styles = StyleSheet.create({
     containerList: {
       paddingHorizontal: 25,
     },
-    textInput: {
-      borderColor: 'black',
-      borderBottomWidth: 1, 
-      marginBottom: 10,
-      width: '70%',
-      height: 40,
-      fontSize: 14,
-      color: '#212121'
-    },
     textList: {
       fontSize: 14,
       color: '#212121',
