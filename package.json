@@ -10,15 +10,22 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "lottie-ios": "^3.2.3",
+    "lottie-react-native": "^5.0.1",
     "react": "17.0.2",
     "react-native": "0.67.3"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
+    "@babel/eslint-parser": "^7.5.4",
     "@babel/runtime": "^7.17.2",
     "@react-native-community/eslint-config": "^3.0.1",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^27.5.1",
     "eslint": "^8.9.0",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-react-hooks": "^4.2.1-rc.2-next-581f0c42e-20220310",
     "jest": "^27.5.1",
     "metro-react-native-babel-preset": "^0.68.0",
     "react-test-renderer": "17.0.2"
