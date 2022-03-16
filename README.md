@@ -12,6 +12,7 @@ en caso de algún error en la instalación, las dependencias utilizadas fueron:
 para instalar:
 
 npm i --save lottie-react-native
+
 npm i --save lottie-ios@3.2.3
 
 en caso de utilizar la versión de iOS ir a la carpera ios y correr el comando: `pod install`
